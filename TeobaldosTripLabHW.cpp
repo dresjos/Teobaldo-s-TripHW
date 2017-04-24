@@ -38,14 +38,33 @@ bool Which_Or(int searhh)
             aux_ = links_ListA[i];
             aux_2 = links_ListB[i];
         }
+        /*
+                ****************************************************
+                    The problem is that always it founds the target,
+                    It will be i=0.
+                ****************************************************
+        */
         if(aux_ != 0 )
         {
             links_ListA[i] = links_ListB[i] = 0;
-            if(aux_2 == e_data && i==0)
+            //cout << "  dd " << aux_ << e_data <<  endl;
+            if(aux_ == e_data)
             {
-                return false;
+
+                //cout << " A and B: " << aux_ << aux_2 << endl;
+                if(counter==0)
+                {
+                    //cout << "i==0 false" << endl;
+                    return false;
+                }else
+                {
+                    //cout << "i!=0 True" << endl;
+                    return true;
+                }
             }else
             {
+                //cout << " second else " << endl;
+                ++counter;
                 if(aux_ == e_data)
                 {
                     return true;
